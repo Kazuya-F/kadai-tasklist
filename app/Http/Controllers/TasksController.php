@@ -111,8 +111,13 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // deleteでtasks/idにアクセスされた場合の「削除処理」
     public function destroy($id)
     {
-        //
+        $task = Task::find($id);
+        $task->delete();
+
+        return redirect('/');
     }
+
 }
